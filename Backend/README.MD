@@ -1,4 +1,4 @@
-# Documentation for `/users/register` Endpoint
+# Documentation for Backend API
 
 ## Endpoint Description
 `POST /users/register`
