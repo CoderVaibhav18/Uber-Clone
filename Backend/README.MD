@@ -169,6 +169,29 @@ This endpoint is used to log out a user by clearing the authentication token. If
 
 ---
 
+### Request Format
+#### URL
+`/users/logout`
+
+#### Method
+`POST`
+
+#### Headers
+- `Content-Type: application/json`
+
+#### Response Format
+#### Success Response
+**Status Code**: `200 OK`
+
+**Response Body**:
+```json
+{
+  "msg": "Logout successful"
+}
+```
+
+---
+
 ## Endpoint: `/users/profile`
 
 ### Description
@@ -228,28 +251,6 @@ Example:
     "msg": "Access denied. No token provided."
   }
   ```
-
----
-### Request Format
-#### URL
-`/users/logout`
-
-#### Method
-`POST`
-
-#### Headers
-- `Content-Type: application/json`
-
-#### Response Format
-#### Success Response
-**Status Code**: `200 OK`
-
-**Response Body**:
-```json
-{
-  "msg": "Logout successful"
-}
-```
 
 ---
 
