@@ -1,4 +1,5 @@
 # Documentation for Backend API Docs
+
 ## Endpoint: `/users/register`
 
 ### Description
@@ -158,6 +159,97 @@ Example:
 
 ### Implementation Details
 This endpoint is implemented using `express-validator` for input validation. Upon successful validation, user credentials are verified, and a JWT is generated for the authenticated user.
+
+---
+
+## Endpoint: `/users/logout`
+
+### Description
+This endpoint is used to log out a user by clearing the authentication token. If the token is stored in a cookie, it is cleared from the client.
+
+---
+
+## Endpoint: `/users/profile`
+
+### Description
+This endpoint retrieves the profile details of the authenticated user.
+
+---
+
+### Request Format
+#### URL
+`/users/profile`
+
+#### Method
+`GET`
+
+#### Headers
+- `Authorization: Bearer <JWT Token>`
+
+---
+
+### Response Format
+#### Success Response
+**Status Code**: `200 OK`
+
+**Response Body**:
+```json
+{
+  "user": {
+    "fullname": {
+      "firstname": "<First Name>",
+      "lastname": "<Last Name>"
+    },
+    "email": "<User's Email>",
+    "id": "<User ID>"
+  }
+}
+```
+
+Example:
+
+```json
+{
+  "user": {
+    "fullname": {
+      "firstname": "John",
+      "lastname": "Doe"
+    },
+    "email": "john.doe@example.com",
+    "id": "64b3f7809b97c82b6f85e523"
+  }
+}
+```
+
+#### Error Responses
+- **401 Unauthorized**: Missing or invalid token
+  ```json
+  {
+    "msg": "Access denied. No token provided."
+  }
+  ```
+
+---
+### Request Format
+#### URL
+`/users/logout`
+
+#### Method
+`POST`
+
+#### Headers
+- `Content-Type: application/json`
+
+#### Response Format
+#### Success Response
+**Status Code**: `200 OK`
+
+**Response Body**:
+```json
+{
+  "msg": "Logout successful"
+}
+```
 
 ---
 
