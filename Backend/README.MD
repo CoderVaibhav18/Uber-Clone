@@ -162,36 +162,6 @@ This endpoint is implemented using `express-validator` for input validation. Upo
 
 ---
 
-## Endpoint: `/users/logout`
-
-### Description
-This endpoint is used to log out a user by clearing the authentication token. If the token is stored in a cookie, it is cleared from the client.
-
----
-
-### Request Format
-#### URL
-`/users/logout`
-
-#### Method
-`POST`
-
-#### Headers
-- `Content-Type: application/json`
-
-#### Response Format
-#### Success Response
-**Status Code**: `200 OK`
-
-**Response Body**:
-```json
-{
-  "msg": "Logout successful"
-}
-```
-
----
-
 ## Endpoint: `/users/profile`
 
 ### Description
@@ -251,6 +221,36 @@ Example:
     "msg": "Access denied. No token provided."
   }
   ```
+
+---
+
+## Endpoint: `/users/logout`
+
+### Description
+This endpoint is used to log out a user by clearing the authentication token. If the token is stored in a cookie, it is cleared from the client.
+
+---
+
+### Request Format
+#### URL
+`/users/logout`
+
+#### Method
+`POST`
+
+#### Headers
+- `Content-Type: application/json`
+
+#### Response Format
+#### Success Response
+**Status Code**: `200 OK`
+
+**Response Body**:
+```json
+{
+  "msg": "Logout successful"
+}
+```
 
 ---
 
