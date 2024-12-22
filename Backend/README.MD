@@ -1,5 +1,4 @@
-# Documentation for `/users/register` and `/users/login` Endpoints
-
+# Documentation for Backend API Docs
 ## Endpoint: `/users/register`
 
 ### Description
