@@ -1,0 +1,139 @@
+# Documentation for Backend API
+
+## Endpoint Description
+`POST /users/register`
+
+This endpoint is used to register a new user by providing the required data in the request body. Upon successful registration, it returns a JSON Web Token (JWT) and the created user details.
+
+---
+
+## Request Format
+### URL
+`/users/register`
+
+### Method
+`POST`
+
+### Headers
+- `Content-Type: application/json`
+
+### Request Body
+The request body must be in JSON format and include the following fields:
+
+```json
+{
+  "fullname": {
+    "firstname": "<User's first name> (required, minimum 3 characters)",
+    "lastname": "<User's last name> (optional)"
+  },
+  "email": "<User's email> (required, valid email format)",
+  "password": "<User's password> (required, minimum 6 characters)"
+}
+```
+
+Example:
+
+```json
+{
+  "fullname": {
+    "firstname": "John",
+    "lastname": "Doe"
+  },
+  "email": "john.doe@example.com",
+  "password": "securePassword123"
+}
+```
+
+---
+
+## Validation Rules
+1. `fullname.firstname`:
+   - Required
+   - Minimum length: 3 characters
+2. `email`:
+   - Required
+   - Must be in a valid email format
+3. `password`:
+   - Required
+   - Minimum length: 6 characters
+
+If any validation rule is not met, the API will return an error response with a 400 status code.
+
+---
+
+## Response Format
+### Success Response
+**Status Code**: `201 Created`
+
+**Response Body**:
+```json
+{
+  "token": "<JWT Token>",
+  "user": {
+    "fullname": {
+      "firstname": "<First Name>",
+      "lastname": "<Last Name>"
+    },
+    "email": "<User's Email>",
+    "id": "<User ID>"
+  }
+}
+```
+
+Example:
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+  "user": {
+    "fullname": {
+      "firstname": "John",
+      "lastname": "Doe"
+    },
+    "email": "john.doe@example.com",
+    "id": "64b3f7809b97c82b6f85e523"
+  }
+}
+```
+
+### Error Responses
+- **400 Bad Request**: Validation errors
+  ```json
+  {
+    "errors": [
+      {
+        "msg": "<Error message>",
+        "param": "<Field>",
+        "location": "body"
+      }
+    ]
+  }
+  ```
+
+  Example:
+  ```json
+  {
+    "errors": [
+      {
+        "msg": "First name must be at least 3 characters long",
+        "param": "fullname.firstname",
+        "location": "body"
+      },
+      {
+        "msg": "Invalid email",
+        "param": "email",
+        "location": "body"
+      }
+    ]
+  }
+  ```
+
+---
+
+## Implementation Details
+This endpoint is implemented using `express-validator` for input validation. Upon successful validation, the user's data is hashed and stored in the database.
+
+---
+
+## Folder Structure
+This documentation is stored in the `backend` folder.
