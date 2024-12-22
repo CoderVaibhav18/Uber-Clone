@@ -11,6 +11,12 @@ const authUser = async (req, res, next) => {
     return res.status(401).json({ msg: "Unauthorized" });
   }
 
+  const isBlackListed = await userModel.findOne({token: token})
+
+  if(isBlackListed){
+    return res.status(401).json({ msg: "Unauthorized" })
+  }
+
   try {
     // Verify token
     const decoded = jwt.verify(token, process.env.SECRET_KEY);
