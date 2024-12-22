@@ -236,7 +236,7 @@ This endpoint is used to log out a user by clearing the authentication token. If
 `/users/logout`
 
 #### Method
-`POST`
+`GET`
 
 #### Headers
 - `Content-Type: application/json`
