@@ -153,18 +153,6 @@ Example:
     "msg": "Invalid email or password"
   }
   ```
-- **400 Bad Request**: Validation errors
-  ```json
-  {
-    "errors": [
-      {
-        "msg": "<Error message>",
-        "param": "<Field>",
-        "location": "body"
-      }
-    ]
-  }
-  ```
 
 ---
 
