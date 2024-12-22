@@ -1,23 +1,22 @@
-# Documentation for Backend API
+# Documentation for Backend API Docs
+## Endpoint: `/users/register`
 
-## Endpoint Description
-`POST /users/register`
-
+### Description
 This endpoint is used to register a new user by providing the required data in the request body. Upon successful registration, it returns a JSON Web Token (JWT) and the created user details.
 
 ---
 
-## Request Format
-### URL
+### Request Format
+#### URL
 `/users/register`
 
-### Method
+#### Method
 `POST`
 
-### Headers
+#### Headers
 - `Content-Type: application/json`
 
-### Request Body
+#### Request Body
 The request body must be in JSON format and include the following fields:
 
 ```json
@@ -46,7 +45,7 @@ Example:
 
 ---
 
-## Validation Rules
+### Validation Rules
 1. `fullname.firstname`:
    - Required
    - Minimum length: 3 characters
@@ -57,13 +56,64 @@ Example:
    - Required
    - Minimum length: 6 characters
 
+
+### Implementation Details
+This endpoint is implemented using `express-validator` for input validation. Upon successful validation, the user's data is hashed and stored in the database.
+
+---
+
+## Endpoint: `/users/login`
+
+### Description
+This endpoint is used for user authentication. It validates user credentials and returns a JSON Web Token (JWT) along with user details if the login is successful.
+
+---
+
+### Request Format
+#### URL
+`/users/login`
+
+#### Method
+`POST`
+
+#### Headers
+- `Content-Type: application/json`
+
+#### Request Body
+The request body must be in JSON format and include the following fields:
+
+```json
+{
+  "email": "<User's email> (required, valid email format)",
+  "password": "<User's password> (required, minimum 6 characters)"
+}
+```
+
+Example:
+
+```json
+{
+  "email": "john.doe@example.com",
+  "password": "securePassword123"
+}
+```
+
+---
+
+### Validation Rules
+1. `email`:
+   - Required
+   - Must be in a valid email format
+2. `password`:
+   - Required
+
 If any validation rule is not met, the API will return an error response with a 400 status code.
 
 ---
 
-## Response Format
-### Success Response
-**Status Code**: `201 Created`
+### Response Format
+#### Success Response
+**Status Code**: `200 OK`
 
 **Response Body**:
 ```json
@@ -96,42 +146,18 @@ Example:
 }
 ```
 
-### Error Responses
-- **400 Bad Request**: Validation errors
+#### Error Responses
+- **400 Bad Request**: Invalid email or password
   ```json
   {
-    "errors": [
-      {
-        "msg": "<Error message>",
-        "param": "<Field>",
-        "location": "body"
-      }
-    ]
-  }
-  ```
-
-  Example:
-  ```json
-  {
-    "errors": [
-      {
-        "msg": "First name must be at least 3 characters long",
-        "param": "fullname.firstname",
-        "location": "body"
-      },
-      {
-        "msg": "Invalid email",
-        "param": "email",
-        "location": "body"
-      }
-    ]
+    "msg": "Invalid email or password"
   }
   ```
 
 ---
 
-## Implementation Details
-This endpoint is implemented using `express-validator` for input validation. Upon successful validation, the user's data is hashed and stored in the database.
+### Implementation Details
+This endpoint is implemented using `express-validator` for input validation. Upon successful validation, user credentials are verified, and a JWT is generated for the authenticated user.
 
 ---
 
