@@ -46,9 +46,6 @@ Example:
    - Minimum length: 6 characters
 
 
-### Implementation Details
-This endpoint is implemented using `express-validator` for input validation. Upon successful validation, the user's data is hashed and stored in the database.
-
 ---
 
 ## Endpoint: `/users/login`
