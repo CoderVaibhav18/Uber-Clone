@@ -93,41 +93,6 @@ If any validation rule is not met, the API will return an error response with a 
 
 ---
 
-### Response Format
-#### Success Response
-**Status Code**: `200 OK`
-
-**Response Body**:
-```json
-{
-  "token": "<JWT Token>",
-  "user": {
-    "fullname": {
-      "firstname": "<First Name>",
-      "lastname": "<Last Name>"
-    },
-    "email": "<User's Email>",
-    "id": "<User ID>"
-  }
-}
-```
-
-Example:
-
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
-  "user": {
-    "fullname": {
-      "firstname": "John",
-      "lastname": "Doe"
-    },
-    "email": "john.doe@example.com",
-    "id": "64b3f7809b97c82b6f85e523"
-  }
-}
-```
-
 #### Error Responses
 - **400 Bad Request**: Invalid email or password
   ```json
