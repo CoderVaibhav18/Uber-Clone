@@ -223,9 +223,6 @@ Example:
 3. `password`:
    - Required
    - Minimum length: 6 characters
-4. `license`:
-   - Required
-   - Must be a valid captain license identifier
 
 ---
 
