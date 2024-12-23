@@ -19,18 +19,6 @@ This endpoint is used to register a new user by providing the required data in t
 
 #### Request Body
 The request body must be in JSON format and include the following fields:
-
-```json
-{
-  "fullname": {
-    "firstname": "<User's first name> (required, minimum 3 characters)",
-    "lastname": "<User's last name> (optional)"
-  },
-  "email": "<User's email> (required, valid email format)",
-  "password": "<User's password> (required, minimum 6 characters)"
-}
-```
-
 Example:
 
 ```json
@@ -83,13 +71,6 @@ This endpoint is used for user authentication. It validates user credentials and
 #### Request Body
 The request body must be in JSON format and include the following fields:
 
-```json
-{
-  "email": "<User's email> (required, valid email format)",
-  "password": "<User's password> (required, minimum 6 characters)"
-}
-```
-
 Example:
 
 ```json
@@ -111,41 +92,6 @@ Example:
 If any validation rule is not met, the API will return an error response with a 400 status code.
 
 ---
-
-### Response Format
-#### Success Response
-**Status Code**: `200 OK`
-
-**Response Body**:
-```json
-{
-  "token": "<JWT Token>",
-  "user": {
-    "fullname": {
-      "firstname": "<First Name>",
-      "lastname": "<Last Name>"
-    },
-    "email": "<User's Email>",
-    "id": "<User ID>"
-  }
-}
-```
-
-Example:
-
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
-  "user": {
-    "fullname": {
-      "firstname": "John",
-      "lastname": "Doe"
-    },
-    "email": "john.doe@example.com",
-    "id": "64b3f7809b97c82b6f85e523"
-  }
-}
-```
 
 #### Error Responses
 - **400 Bad Request**: Invalid email or password
