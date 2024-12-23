@@ -100,11 +100,6 @@ If any validation rule is not met, the API will return an error response with a 
 
 ---
 
-### Implementation Details
-This endpoint is implemented using `express-validator` for input validation. Upon successful validation, user credentials are verified, and a JWT is generated for the authenticated user.
-
----
-
 ## Endpoint: `/users/profile`
 
 ### Description
