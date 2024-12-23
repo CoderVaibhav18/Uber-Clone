@@ -200,5 +200,61 @@ This endpoint is used to log out a user by clearing the authentication token. If
 
 ---
 
+## Endpoint: `/captain/register`
+
+### Description
+This endpoint is used to register a new captain by providing the required data in the request body. Upon successful registration, it returns a JSON Web Token (JWT) and the created captain details.
+
+---
+
+### Request Format
+#### URL
+`/captain/register`
+
+#### Method
+`POST`
+
+#### Headers
+- `Content-Type: application/json`
+
+#### Request Body
+The request body must be in JSON format and include the following fields:
+Example:
+
+```json
+{
+  "fullname": {
+    "firstname": "John",
+    "lastname": "Doe"
+  },
+  "email": "john.doe@example.com",
+  "password": "securePassword123",
+  "license": "CaptainLicense123"
+}
+```
+
+---
+
+### Validation Rules
+1. `fullname.firstname`:
+   - Required
+   - Minimum length: 3 characters
+2. `email`:
+   - Required
+   - Must be in a valid email format
+3. `password`:
+   - Required
+   - Minimum length: 6 characters
+4. `license`:
+   - Required
+   - Must be a valid captain license identifier
+
+---
+
+### Implementation Details
+This endpoint is implemented using `express-validator` for input validation. Upon successful validation, the captain's data is hashed and stored in the database.
+
+---
+
 ## Folder Structure
 This documentation is stored in the `backend` folder.
