@@ -46,6 +46,9 @@ Example:
    - Minimum length: 6 characters
 
 
+### Implementation Details
+This endpoint is implemented using `express-validator` for input validation. Upon successful validation, the user's data is hashed and stored in the database.
+
 ---
 
 ## Endpoint: `/users/login`
@@ -100,6 +103,11 @@ If any validation rule is not met, the API will return an error response with a 
 
 ---
 
+### Implementation Details
+This endpoint is implemented using `express-validator` for input validation. Upon successful validation, user credentials are verified, and a JWT is generated for the authenticated user.
+
+---
+
 ## Endpoint: `/users/profile`
 
 ### Description
@@ -122,6 +130,20 @@ This endpoint retrieves the profile details of the authenticated user.
 ### Response Format
 #### Success Response
 **Status Code**: `200 OK`
+
+**Response Body**:
+```json
+{
+  "user": {
+    "fullname": {
+      "firstname": "<First Name>",
+      "lastname": "<Last Name>"
+    },
+    "email": "<User's Email>",
+    "id": "<User ID>"
+  }
+}
+```
 
 Example:
 
@@ -207,7 +229,12 @@ Example:
   },
   "email": "john.doe@example.com",
   "password": "securePassword123",
-  "license": "CaptainLicense123"
+  "vehicle": {
+    "color": "Red",
+    "plate": "ABC-1234",
+    "capacity": 4,
+    "vehicleType": "SUV"
+  }
 }
 ```
 
@@ -223,6 +250,23 @@ Example:
 3. `password`:
    - Required
    - Minimum length: 6 characters
+4. `vehicle.color`:
+   - Required
+   - Must be a string
+5. `vehicle.plate`:
+   - Required
+   - Must be a valid license plate format
+6. `vehicle.capacity`:
+   - Required
+   - Must be a positive integer
+7. `vehicle.vehicleType`:
+   - Required
+   - Must be one of `Car`, `Auto`, `Motorcycle ` or other supported vehicle types
+
+---
+
+### Implementation Details
+This endpoint is implemented using `express-validator` for input validation. Upon successful validation, the captain's data is hashed and stored in the database.
 
 ---
 
