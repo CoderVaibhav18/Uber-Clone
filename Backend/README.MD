@@ -131,20 +131,6 @@ This endpoint retrieves the profile details of the authenticated user.
 #### Success Response
 **Status Code**: `200 OK`
 
-**Response Body**:
-```json
-{
-  "user": {
-    "fullname": {
-      "firstname": "<First Name>",
-      "lastname": "<Last Name>"
-    },
-    "email": "<User's Email>",
-    "id": "<User ID>"
-  }
-}
-```
-
 Example:
 
 ```json
