@@ -71,13 +71,6 @@ This endpoint is used for user authentication. It validates user credentials and
 #### Request Body
 The request body must be in JSON format and include the following fields:
 
-```json
-{
-  "email": "<User's email> (required, valid email format)",
-  "password": "<User's password> (required, minimum 6 characters)"
-}
-```
-
 Example:
 
 ```json
