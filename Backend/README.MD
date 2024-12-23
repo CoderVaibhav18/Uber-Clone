@@ -237,10 +237,5 @@ Example:
 
 ---
 
-### Implementation Details
-This endpoint is implemented using `express-validator` for input validation. Upon successful validation, the captain's data is hashed and stored in the database.
-
----
-
 ## Folder Structure
 This documentation is stored in the `backend` folder.
