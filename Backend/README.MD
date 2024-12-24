@@ -45,10 +45,6 @@ Example:
    - Required
    - Minimum length: 6 characters
 
-
-### Implementation Details
-This endpoint is implemented using `express-validator` for input validation. Upon successful validation, the user's data is hashed and stored in the database.
-
 ---
 
 ## Endpoint: `/users/login`
@@ -249,6 +245,59 @@ Example:
 7. `vehicle.vehicleType`:
    - Required
    - Must be one of `Car`, `Auto`, `Motorcycle ` or other supported vehicle types
+
+---
+
+## Endpoint: `/users/login`
+
+### Description
+This endpoint is used for captain authentication. It validates user credentials and returns a JSON Web Token (JWT) along with user details if the login is successful.
+
+---
+
+### Request Format
+#### URL
+`/captain/login`
+
+#### Method
+`POST`
+
+#### Headers
+- `Content-Type: application/json`
+
+#### Request Body
+The request body must be in JSON format and include the following fields:
+
+Example:
+
+```json
+{
+  "email": "john.doe@example.com",
+  "password": "securePassword123"
+}
+```
+
+---
+
+### Validation Rules
+1. `email`:
+   - Required
+   - Must be in a valid email formate
+2. `password`:
+   - Required
+   - Must be at least 6 characters 
+
+If any validation rule is not met, the API will return an error response with a 400 status code.
+
+---
+
+#### Error Responses
+- **400 Bad Request**: Invalid email or password
+  ```json
+  {
+    "msg": "Invalid email or password"
+  }
+  ```
 
 ---
 
