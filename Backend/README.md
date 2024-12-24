@@ -156,7 +156,7 @@ Example:
 ## Endpoint: `/users/logout`
 
 ### Description
-This endpoint is used to log out a user by clearing the authentication token and store blacke listed token in db and expires in 24h. If the token is stored in a cookie, it is cleared from the client.
+This endpoint is used to log out a user by clearing the authentication token and storing a blacklisted token in the database that expires in 24 hours. If the token is stored in a cookie, it is cleared from the client.
 
 ---
 
@@ -248,56 +248,88 @@ Example:
 
 ---
 
-## Endpoint: `/captain/login`
+## Endpoint: `/captain/profile`
 
 ### Description
-This endpoint is used for captain authentication. It validates user credentials and returns a JSON Web Token (JWT) along with user details if the login is successful.
+This endpoint retrieves the profile details of the authenticated captain.
 
 ---
 
 ### Request Format
 #### URL
-`/captain/login`
+`/captain/profile`
 
 #### Method
-`POST`
+`GET`
 
 #### Headers
-- `Content-Type: application/json`
+- `Authorization: Bearer <JWT Token>`
 
-#### Request Body
-The request body must be in JSON format and include the following fields:
+---
 
+### Response Format
+#### Success Response
+**Status Code**: `200 OK`
+
+**Response Body**:
 Example:
 
 ```json
 {
-  "email": "john.doe@example.com",
-  "password": "securePassword123"
+  "captain": {
+    "fullname": {
+      "firstname": "John",
+      "lastname": "Doe"
+    },
+    "email": "john.doe@example.com",
+    "vehicle": {
+      "color": "Red",
+      "plate": "ABC-1234",
+      "capacity": 4,
+      "vehicleType": "SUV"
+    },
+    "id": "64b3f7809b97c82b6f85e523"
+  }
 }
 ```
 
----
-
-### Validation Rules
-1. `email`:
-   - Required
-   - Must be in a valid email formate
-2. `password`:
-   - Required
-   - Must be at least 6 characters 
-
-If any validation rule is not met, the API will return an error response with a 400 status code.
-
----
-
 #### Error Responses
-- **400 Bad Request**: Invalid email or password
+- **401 Unauthorized**: Missing or invalid token
   ```json
   {
-    "msg": "Invalid email or password"
+    "msg": "Access denied. No token provided."
   }
   ```
+
+---
+
+## Endpoint: `/captain/logout`
+
+### Description
+This endpoint is used to log out a captain by clearing the authentication token and storing a blacklisted token in the database that expires in 24 hours. If the token is stored in a cookie, it is cleared from the client.
+
+---
+
+### Request Format
+#### URL
+`/captain/logout`
+
+#### Method
+`GET`
+
+#### Headers
+- `Content-Type: application/json`
+
+#### Response Format
+#### Success Response
+**Status Code**: `200 OK`
+
+**Response Body**:
+```json
+{
+  "msg": "Logout successful"
+}
+```
 
 ---
 
