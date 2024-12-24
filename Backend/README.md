@@ -45,10 +45,6 @@ Example:
    - Required
    - Minimum length: 6 characters
 
-
-### Implementation Details
-This endpoint is implemented using `express-validator` for input validation. Upon successful validation, the user's data is hashed and stored in the database.
-
 ---
 
 ## Endpoint: `/users/login`
@@ -160,7 +156,7 @@ Example:
 ## Endpoint: `/users/logout`
 
 ### Description
-This endpoint is used to log out a user by clearing the authentication token and store blacke listed token in db and expires in 24h. If the token is stored in a cookie, it is cleared from the client.
+This endpoint is used to log out a user by clearing the authentication token and storing a blacklisted token in the database that expires in 24 hours. If the token is stored in a cookie, it is cleared from the client.
 
 ---
 
@@ -249,6 +245,91 @@ Example:
 7. `vehicle.vehicleType`:
    - Required
    - Must be one of `Car`, `Auto`, `Motorcycle ` or other supported vehicle types
+
+---
+
+## Endpoint: `/captain/profile`
+
+### Description
+This endpoint retrieves the profile details of the authenticated captain.
+
+---
+
+### Request Format
+#### URL
+`/captain/profile`
+
+#### Method
+`GET`
+
+#### Headers
+- `Authorization: Bearer <JWT Token>`
+
+---
+
+### Response Format
+#### Success Response
+**Status Code**: `200 OK`
+
+**Response Body**:
+Example:
+
+```json
+{
+  "captain": {
+    "fullname": {
+      "firstname": "John",
+      "lastname": "Doe"
+    },
+    "email": "john.doe@example.com",
+    "vehicle": {
+      "color": "Red",
+      "plate": "ABC-1234",
+      "capacity": 4,
+      "vehicleType": "SUV"
+    },
+    "id": "64b3f7809b97c82b6f85e523"
+  }
+}
+```
+
+#### Error Responses
+- **401 Unauthorized**: Missing or invalid token
+  ```json
+  {
+    "msg": "Access denied. No token provided."
+  }
+  ```
+
+---
+
+## Endpoint: `/captain/logout`
+
+### Description
+This endpoint is used to log out a captain by clearing the authentication token and storing a blacklisted token in the database that expires in 24 hours. If the token is stored in a cookie, it is cleared from the client.
+
+---
+
+### Request Format
+#### URL
+`/captain/logout`
+
+#### Method
+`GET`
+
+#### Headers
+- `Content-Type: application/json`
+
+#### Response Format
+#### Success Response
+**Status Code**: `200 OK`
+
+**Response Body**:
+```json
+{
+  "msg": "Logout successful"
+}
+```
 
 ---
 
