@@ -248,7 +248,7 @@ Example:
 
 ---
 
-## Endpoint: `/users/login`
+## Endpoint: `/captain/login`
 
 ### Description
 This endpoint is used for captain authentication. It validates user credentials and returns a JSON Web Token (JWT) along with user details if the login is successful.
