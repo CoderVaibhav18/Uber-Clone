@@ -132,19 +132,6 @@ This endpoint retrieves the profile details of the authenticated user.
 **Status Code**: `200 OK`
 
 **Response Body**:
-```json
-{
-  "user": {
-    "fullname": {
-      "firstname": "<First Name>",
-      "lastname": "<Last Name>"
-    },
-    "email": "<User's Email>",
-    "id": "<User ID>"
-  }
-}
-```
-
 Example:
 
 ```json
@@ -173,7 +160,7 @@ Example:
 ## Endpoint: `/users/logout`
 
 ### Description
-This endpoint is used to log out a user by clearing the authentication token. If the token is stored in a cookie, it is cleared from the client.
+This endpoint is used to log out a user by clearing the authentication token and store blacke listed token in db and expires in 24h. If the token is stored in a cookie, it is cleared from the client.
 
 ---
 
