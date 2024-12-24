@@ -37,14 +37,12 @@ const loginUser = async (req, res) => {
   }
 
   const { email, password } = req.body;
-  console.log(password);
 
   const user = await userModel.findOne({ email }).select("+password");
 
   if (!user) {
     res.status(400).json({ msg: "Invalid email or password" });
   }
-  console.log(user);
 
   const isMatch = await user.comparePassword(password);
 

@@ -6,9 +6,11 @@ const cookiesParser = require("cookie-parser");
 const connectToMongodb = require("./db/db");
 const userRoutes = require("./routes/user");
 const captainRoutes = require("./routes/captain");
+const bodyParser = require('body-parser');
 const port = process.env.PORT || 8008;
 
 connectToMongodb();
+app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
