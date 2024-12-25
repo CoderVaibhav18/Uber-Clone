@@ -332,5 +332,3 @@ This endpoint is used to log out a captain by clearing the authentication token 
 ```
 
 ---
-
-#
