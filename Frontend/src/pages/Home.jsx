@@ -14,10 +14,10 @@ const Home = () => {
           src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png"
         />
         <div className="bg-white pb-7 py-4 px-4">
-          <h2 className="text-3xl font-bold">Get Started with Uber</h2>
+          <h2 className="text-[30px] font-bold">Get Started with Uber</h2>
           <Link
             to="/login"
-            className="bg-black flex items-center justify-center text-center text-white w-full py-3 rounded mt-5"
+            className="bg-black flex items-center justify-center text-center text-white w-full py-3 rounded-lg mt-5"
           >
             Continue
           </Link>
