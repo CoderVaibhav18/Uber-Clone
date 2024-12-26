@@ -1,28 +1,38 @@
-// import React from 'react'
-
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { UserData } from "../context/userContext";
 
 const UserSignup = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userData, setUserData] = useState({});
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const { setUser } = useContext(UserData);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(firstName, lastName, email, password);
-    setUserData({
-      fullName: {
-        firstName: firstName,
-        lastName: lastName,
+    const newUser = {
+      fullname: {
+        firstname: firstName,
+        lastname: lastName,
       },
       email: email,
       password: password,
-    });
-    console.log(userData);
-    
+    };
+    const response = await axios.post(
+      `${import.meta.env.VITE_API_URL}/users/register`,
+      newUser
+    );
+    if (response.status === 201) {
+      const data = response.data;
+      setUser(data.user);
+      navigate("/home");
+    }
+
     setFirstName("");
     setLastName("");
     setEmail("");
@@ -89,8 +99,11 @@ const UserSignup = () => {
         </p>
       </div>
       <div>
-      <p className='text-[10px] leading-tight'>This site is protected by reCAPTCHA and the <span className='underline'>Google Privacy
-      Policy</span> and <span className='underline'>Terms of Service apply</span>.</p>
+        <p className="text-[10px] leading-tight">
+          This site is protected by reCAPTCHA and the{" "}
+          <span className="underline">Google Privacy Policy</span> and{" "}
+          <span className="underline">Terms of Service apply</span>.
+        </p>
       </div>
     </div>
   );
