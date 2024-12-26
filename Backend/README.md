@@ -332,6 +332,3 @@ This endpoint is used to log out a captain by clearing the authentication token 
 ```
 
 ---
-
-## Folder Structure
-This documentation is stored in the `backend` folder.
