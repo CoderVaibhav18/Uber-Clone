@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 
@@ -6,9 +7,11 @@ const UserProtectedWrapper = ({ children }) => {
   const token = localStorage.getItem("token");
   const Navigate = useNavigate();
 
-  if (!token) {
-    Navigate("/login");
-  }
+  useEffect(() => {
+    if (!token) {
+      Navigate("/login");
+    }
+  }, [token, Navigate]);
 
   return <>{children}</>;
 };
