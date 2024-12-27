@@ -15,9 +15,9 @@ const UserContext = ({ children }) => {
     password: "",
   });
 
-  return (
-    <UserData.Provider value={{ user, setUser }}>{children}</UserData.Provider>
-  );
+  const value = { user, setUser };
+
+  return <UserData.Provider value={value}>{children}</UserData.Provider>;
 };
 UserContext.propTypes = {
   children: PropTypes.node.isRequired, // Ensures 'children' is a valid React node and required
