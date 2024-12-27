@@ -69,7 +69,7 @@ const authCaptain = async (req, res, next) => {
     req.captain = captain;
     return next();
   } catch (error) {
-    console.log(err);
+    console.log(error);
     res.status(401).json({ message: "Unauthorized" });
   }
 };
