@@ -10,7 +10,6 @@ const CaptainSignup = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [userData, setUserData] = useState({});
 
   const [vehicleColor, setVehicleColor] = useState("");
   const [vehiclePlate, setVehiclePlate] = useState("");
@@ -36,14 +35,20 @@ const CaptainSignup = () => {
         vehicleType: vehicleType,
       },
     };
+
     const response = await axios.post(
       `${import.meta.env.VITE_API_URL}/captain/register`,
-      newCaptain
+      newCaptain,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     );
     if (response.status === 201) {
       const data = response.data;
       setCaptain(data.captain);
-      console.log("captain created");
+      alert("captain created");
       localStorage.setItem("token", data.token);
       Navigate("/captain-home");
     }
@@ -151,7 +156,7 @@ const CaptainSignup = () => {
               </option>
               <option value="car">Car</option>
               <option value="auto">Auto</option>
-              <option value="Motorcycle">Motorcycle</option>
+              <option value="motorcycle">Motorcycle</option>
             </select>
           </div>
           <button

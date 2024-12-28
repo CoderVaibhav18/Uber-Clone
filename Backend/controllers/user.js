@@ -14,8 +14,6 @@ const registerUser = async (req, res, next) => {
   if (isUserAlreadyexists) {
     return res.status(400).json({ message: "User already exists" });
   }
-
-  console.log(fullname);
   
   const hashedPassword = await userModel.hashPassword(password);
   const user = await createUser({
@@ -25,7 +23,7 @@ const registerUser = async (req, res, next) => {
     password: hashedPassword,
   });
 
-  const token = user.generateAuthToken();
+  const token = user.genAuthToken();
   res.status(201).json({ token, user });
 };
 
@@ -50,7 +48,7 @@ const loginUser = async (req, res) => {
     res.status(400).json({ msg: "Invalid email or password" });
   }
 
-  const token = user.generateAuthToken();
+  const token = user.genAuthToken();
   res.cookie("token", token);
   res.json({ token, user });
 };
