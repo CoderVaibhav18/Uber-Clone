@@ -38,7 +38,7 @@ const Home = () => {
         <div className="h-[30%] bg-white p-6 relative">
           <h4 className="text-2xl font-semibold">Find a trip</h4>
           <form>
-            <div className="line h-16 w-1 rounded-full bg-gray-900 absolute top-[45%] left-10"></div>
+            <div className="line h-14 w-1 rounded-full bg-gray-900 absolute top-[42%] left-10"></div>
             <input
               className="bg-[#eeeeeec7] rounded-lg text-base mt-3 w-full px-12 py-2"
               type="text"
