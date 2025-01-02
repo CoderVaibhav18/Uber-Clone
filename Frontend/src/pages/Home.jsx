@@ -8,6 +8,9 @@ const Home = () => {
   const [pickup, setPickup] = useState("");
   const [destination, setDestination] = useState("");
   const [panelOpen, setPanelOpen] = useState(false);
+  const [vehiclePanel, setVehiclePanel] = useState(false);
+  const vehiclePanelRef = useRef(null);
+
   const panelRef = useRef(null);
   const panelClose = useRef(null);
 
@@ -32,6 +35,18 @@ const Home = () => {
       });
     }
   }, [panelOpen]);
+
+  useGSAP(() => {
+    if (vehiclePanel) {
+      gsap.to(vehiclePanelRef.current, {
+        transform: "translateY(0)",
+      });
+    } else {
+      gsap.to(vehiclePanelRef.current, {
+        transform: "translateY(100%)",
+      });
+    }
+  }, [vehiclePanel]);
 
   return (
     <div className="h-screen relative w-screen overflow-hidden">
@@ -79,10 +94,22 @@ const Home = () => {
           </form>
         </div>
         <div ref={panelRef} className="bg-white opacity-0">
-          <LocationSearchPanel />
+          <LocationSearchPanel
+            setPanelOpen={setPanelOpen}
+            setVehiclePanel={setVehiclePanel}
+          />
         </div>
       </div>
-      <div className="fixed w-full bg-white translate-y-full bottom-0 z-10 px-3 py-6">
+      <div
+        ref={vehiclePanelRef}
+        className="fixed w-full bg-white translate-y-full bottom-0 z-10 px-3 py-6"
+      >
+        <h4
+          onClick={() => setVehiclePanel(false)}
+          className="absolute right-6 top-7 text-3xl font-bold"
+        >
+          <i className="ri-arrow-down-wide-line"></i>
+        </h4>
         <h3 className="text-2xl font-semibold mb-5">Choose vehicle</h3>
         <div className="flex items-center border-2 active:border-black rounded-lg justify-between p-3 mb-2 w-full">
           <img
@@ -135,7 +162,6 @@ const Home = () => {
           </div>
           <h4 className="font-semibold text-lg">₹118.86</h4>
         </div>
-        
       </div>
     </div>
   );

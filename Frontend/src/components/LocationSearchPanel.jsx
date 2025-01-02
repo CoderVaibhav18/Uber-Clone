@@ -1,7 +1,9 @@
 // import React from 'react'
 import "remixicon/fonts/remixicon.css";
 
-const LocationSearchPanel = () => {
+const LocationSearchPanel = (props) => {
+  console.log(props);
+
   const locations = [
     "167, Killa Ward Ballarpur-442701, Dist Chandrapur, Near Visapur Road",
     "168, Sidharth Ward Ballarpur-442701, Dist Chandrapur",
@@ -12,6 +14,10 @@ const LocationSearchPanel = () => {
       {locations.map((location, index) => {
         return (
           <div
+            onClick={() => {
+              props.setVehiclePanel(true);
+              props.setPanelOpen(false);
+            }}
             key={index}
             className="gap-3 border-2 border-gray-100 active:border-black rounded-xl flex items-center my-2 p-3 justify-start"
           >
