@@ -93,7 +93,7 @@ const Home = () => {
             <h4 className="font-medium text-base">
               UberGo{" "}
               <span>
-                <i className="ri-user-3-fill"></i>3
+                <i className="ri-user-3-fill"></i>4
               </span>
             </h4>
             <h5 className="font-medium text-sm">2 mins away</h5>
