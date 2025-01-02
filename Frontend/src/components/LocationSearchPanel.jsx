@@ -2,8 +2,6 @@
 import "remixicon/fonts/remixicon.css";
 
 const LocationSearchPanel = (props) => {
-  console.log(props);
-
   const locations = [
     "167, Killa Ward Ballarpur-442701, Dist Chandrapur, Near Visapur Road",
     "168, Sidharth Ward Ballarpur-442701, Dist Chandrapur",
