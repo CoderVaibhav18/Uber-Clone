@@ -14,7 +14,6 @@ const UserContext = ({ children }) => {
     email: "",
     password: "",
   });
-
   const value = { user, setUser };
 
   return <UserData.Provider value={value}>{children}</UserData.Provider>;
