@@ -20,7 +20,7 @@ const ConfirmedRide = (props) => {
             <i className="text-lg ri-map-pin-fill"></i>
             <div>
               <h3 className="text-lg font-medium">562/11-A</h3>
-              <p className="font-semibold text-gray-600">
+              <p className="font-sm -mt-1 text-gray-600">
                 Block 11, Sector 562
               </p>
             </div>
