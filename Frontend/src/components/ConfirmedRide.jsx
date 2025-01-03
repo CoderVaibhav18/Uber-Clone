@@ -16,7 +16,13 @@ const ConfirmedRide = (props) => {
           src="https://swyft.pl/wp-content/uploads/2023/05/how-many-people-can-a-uberx-take.jpg"
         />
         <div className="w-full">
-          <div></div>
+          <div>
+            <i className="ri-map-pin-fill"></i>
+            <div>
+              <h3>562/11-A</h3>
+              <p>Block 11, Sector 562</p>
+            </div>
+          </div>
           <div></div>
           <div></div>
         </div>
