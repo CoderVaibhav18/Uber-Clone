@@ -16,7 +16,7 @@ const ConfirmedRide = (props) => {
           src="https://swyft.pl/wp-content/uploads/2023/05/how-many-people-can-a-uberx-take.jpg"
         />
         <div className="w-full flex flex-col gap-2">
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-5 p-3 border-b-2">
             <i className="text-lg ri-map-pin-user-fill"></i>
             <div>
               <h3 className="text-lg font-medium">562/11-A</h3>
@@ -25,7 +25,7 @@ const ConfirmedRide = (props) => {
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-5 p-3 border-b-2">
             <i className="text-lg ri-map-pin-fill"></i>
             <div>
               <h3 className="text-lg font-medium">562/11-A</h3>
@@ -34,7 +34,7 @@ const ConfirmedRide = (props) => {
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-5 p-3 border-b-2">
             <i className="text-lg ri-money-rupee-circle-fill"></i>
             <div>
               <h3 className="text-lg font-medium">₹193.20</h3>
