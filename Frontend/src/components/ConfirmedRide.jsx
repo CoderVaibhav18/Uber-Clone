@@ -17,7 +17,7 @@ const ConfirmedRide = (props) => {
         />
         <div className="w-full flex flex-col gap-2">
           <div className="flex items-center gap-5">
-            <i className="text-lg ri-map-pin-fill"></i>
+            <i className="text-lg ri-map-pin-user-fill"></i>
             <div>
               <h3 className="text-lg font-medium">562/11-A</h3>
               <p className="font-sm -mt-1 text-gray-600">
@@ -37,10 +37,8 @@ const ConfirmedRide = (props) => {
           <div className="flex items-center gap-5">
             <i className="text-lg ri-money-rupee-circle-fill"></i>
             <div>
-              <h3 className="text-lg font-medium">562/11-A</h3>
-              <p className="font-sm -mt-1 text-gray-600">
-                Block 11, Sector 562
-              </p>
+              <h3 className="text-lg font-medium">₹193.20</h3>
+              <p className="font-sm -mt-1 text-gray-600">Cash Cash</p>
             </div>
           </div>
         </div>

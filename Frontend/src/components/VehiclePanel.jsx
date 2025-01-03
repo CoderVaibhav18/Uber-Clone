@@ -28,7 +28,7 @@ const VehiclePanel = (props) => {
           <h5 className="font-medium text-sm">2 mins away</h5>
           <p className="font-medium text-xs">Affortable, compact rides</p>
         </div>
-        <h4 className="font-semibold text-lg">₹193.2</h4>
+        <h4 className="font-semibold text-lg">₹193.20</h4>
       </div>
       <div
         onClick={() => props.setConfirmedRide(true)}
