@@ -7,7 +7,7 @@ const ConfirmedRide = (props) => {
         onClick={() => props.setConfirmedRide(false)}
         className="p-1 text-center w-[93%] absolute top-0"
       >
-        <i className="text-3xl text-gray-200  ri-arrow-down-wide-line"></i>
+        <i className="text-3xl text-gray-200 ri-arrow-down-wide-line"></i>
       </h4>
       <h3 className="text-2xl font-semibold mb-6 mt-3">Confirm your Ride</h3>
       <div className="flex flex-col items-center justify-between gap-2">
