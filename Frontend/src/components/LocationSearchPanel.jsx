@@ -8,8 +8,6 @@ const LocationSearchPanel = (props) => {
     "169, Jay bhim chok Ward Ballarpur-442701, Dist Chandrapur",
   ];
   return (
-    console.log(props);
-    
     <div>
       {locations.map((location, index) => {
         return (
