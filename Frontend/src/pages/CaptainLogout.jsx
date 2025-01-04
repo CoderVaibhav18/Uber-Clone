@@ -7,8 +7,6 @@ const CaptainLogout = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log(token);
-    
     if (!token) {
       // localStorage.removeItem('token')
       navigate("/captain-login");
