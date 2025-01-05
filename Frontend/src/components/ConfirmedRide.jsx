@@ -1,8 +1,6 @@
 // import React from 'react'
 
 const ConfirmedRide = (props) => {
-  console.log(props);
-
   return (
     <div>
       <h4
