@@ -5,16 +5,19 @@ import { useRef, useState } from "react";
 import LocationSearchPanel from "../components/LocationSearchPanel";
 import VehiclePanel from "../components/VehiclePanel";
 import ConfirmedRide from "../components/ConfirmedRide";
+import LookingForDrivers from "../components/LookingForDrivers";
 
 const Home = () => {
   const [pickup, setPickup] = useState("");
   const [destination, setDestination] = useState("");
   const [panelOpen, setPanelOpen] = useState(false);
-  const [confirmedRide, setConfirmedRide] = useState(false)
+  const [confirmedRide, setConfirmedRide] = useState(false);
   const [vehiclePanel, setVehiclePanel] = useState(false);
-  const vehiclePanelRef = useRef(null);
-  const confirmedRidRef = useRef(null)
+  const [vehicleFound, setVehicleFound] = useState(false);
 
+  const vehiclePanelRef = useRef(null);
+  const confirmedRidRef = useRef(null);
+  const vehicleFoundRef = useRef(null);
   const panelRef = useRef(null);
   const panelClose = useRef(null);
 
@@ -51,6 +54,18 @@ const Home = () => {
       });
     }
   }, [vehiclePanel]);
+
+  useGSAP(() => {
+    if (vehicleFound) {
+      gsap.to(vehicleFoundRef.current, {
+        transform: "translateY(0)",
+      });
+    } else {
+      gsap.to(vehicleFoundRef.current, {
+        transform: "translateY(100%)",
+      });
+    }
+  }, [vehicleFound]);
 
   useGSAP(() => {
     if (confirmedRide) {
@@ -120,13 +135,25 @@ const Home = () => {
         ref={vehiclePanelRef}
         className="fixed w-full bg-white translate-y-full bottom-0 z-10 px-3 py-6"
       >
-        <VehiclePanel setConfirmedRide={setConfirmedRide} setVehiclePanel={setVehiclePanel} />
+        <VehiclePanel
+          setConfirmedRide={setConfirmedRide}
+          setVehiclePanel={setVehiclePanel}
+        />
       </div>
       <div
         ref={confirmedRidRef}
         className="fixed w-full bg-white translate-y-full bottom-0 z-10 px-3 py-6"
       >
-        <ConfirmedRide setConfirmedRide={setConfirmedRide}  />
+        <ConfirmedRide
+          setConfirmedRide={setConfirmedRide}
+          setVehicleFound={setVehicleFound}
+        />
+      </div>
+      <div
+        ref={vehicleFoundRef}
+        className="fixed w-full bg-white translate-y-full bottom-0 z-10 px-3 py-6"
+      >
+        <LookingForDrivers />
       </div>
     </div>
   );
