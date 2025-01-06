@@ -153,7 +153,7 @@ const Home = () => {
         ref={vehicleFoundRef}
         className="fixed w-full bg-white translate-y-full bottom-0 z-10 px-3 py-6"
       >
-        <LookingForDrivers />
+        <LookingForDrivers setVehicleFound={setVehicleFound}/>
       </div>
     </div>
   );
