@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const CaptainHome = () => {
   return (
     <div className="h-screen">
-      <div>
-        {/* <img src=""/> */}
+      <div className="fixed p-5 flex items-center justify-between w-full">
+        <img className="w-16 " src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png"/>
         <Link
           to="/captain/logout"
-          className="fixed top-5 right-5 bg-white w-10 h-10 flex items-center justify-center rounded-full"
+          className=" bg-white w-10 h-10 flex items-center justify-center rounded-full"
         >
           <i className="text-lg font-medium ri-logout-box-r-line"></i>
         </Link>
