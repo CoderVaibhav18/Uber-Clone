@@ -1,8 +1,15 @@
-
+import { Link } from "react-router-dom";
 
 const Riding = () => {
+  // const navigate = useNavigate();
   return (
     <div className="h-screen">
+      <Link
+        to="/home"
+        className="fixed top-4 right-5 bg-white w-10 h-10 flex items-center justify-center rounded-full"
+      >
+        <i className="text-xl font-medium ri-home-4-line"></i>
+      </Link>
       <div className="h-1/2">
         <img
           className="h-full w-full object-cover"
