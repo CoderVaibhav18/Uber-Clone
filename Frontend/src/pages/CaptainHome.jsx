@@ -16,13 +16,13 @@ const CaptainHome = () => {
           <i className="text-lg font-medium ri-logout-box-r-line"></i>
         </Link>
       </div>
-      <div className="h-1/2">
+      <div className="h-3/5">
         <img
           className="h-full w-full object-cover"
           src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif"
         />
       </div>
-      <div className="h-1/2 p-6">
+      <div className="h-2/5 p-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3 justify-start">
             <img
@@ -36,7 +36,7 @@ const CaptainHome = () => {
             <p className="text-sm text-gray-600 ">Earned</p>
           </div>
         </div>
-        <div className="flex p-3 bg-gray-50 rounded-xl items-center justify-evenly">
+        <div className="flex p-3 mt-6 bg-gray-200 rounded-xl items-center justify-evenly">
           <div className="text-center">
             <i className="text-3xl mb-2 font-thin ri-timer-2-line"></i>
             <h4 className="text-lg font-medium">10.2</h4>
