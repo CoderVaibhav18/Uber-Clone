@@ -1,15 +1,17 @@
 import React from "react";
 
-const RidePopUp = (props) => {
+const ConfirmRidePopUp = (props) => {
   return (
     <div>
       <h4
-        onClick={() => props.setRidePopUP(false)}
+        onClick={() => props.setConfirmRidePopUp(false)}
         className="p-1 text-center w-[93%] absolute top-0"
       >
         <i className="text-3xl text-gray-200 ri-arrow-down-wide-line"></i>
       </h4>
-      <h3 className="text-2xl font-semibold mb-6 mt-3">New Ride Available</h3>
+      <h3 className="text-2xl font-semibold mb-6 mt-3">
+        Confirm this Ride to Start
+      </h3>
       <div className="flex items-center justify-between mt-4 p-3 bg-yellow-300 rounded-xl">
         <div className="flex items-center gap-2 ">
           <img
@@ -48,21 +50,21 @@ const RidePopUp = (props) => {
             </div>
           </div>
         </div>
-        <button
-          onClick={() => props.setConfirmRidePopUp(true)}
-          className="w-full bg-green-600 text-white font-semibold text-lg mt-5 rounded-lg py-2"
-        >
-          Accept
+        <button className="w-full bg-green-600 text-white font-semibold text-lg mt-5 rounded-lg py-2">
+          Confirm
         </button>
         <button
-          onClick={() => props.setRidePopUP(false)}
-          className="w-full bg-gray-300 text-gray-700 font-semibold text-lg mt-1 rounded-lg py-2"
+          onClick={() => {
+            props.setConfirmRidePopUp(false);
+            props.setRidePopUP(false);
+          }}
+          className="w-full bg-red-600 text-white  font-semibold text-lg mt-1 rounded-lg py-2"
         >
-          Ignore
+          Cancel
         </button>
       </div>
     </div>
   );
 };
 
-export default RidePopUp;
+export default ConfirmRidePopUp;
