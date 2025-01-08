@@ -1,7 +1,9 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const ConfirmRidePopUp = (props) => {
+  const [otp, setOtp] = useState("");
+
   const submitHandler = (e) => {
     e.preventDefault();
   };
@@ -60,6 +62,8 @@ const ConfirmRidePopUp = (props) => {
             <input
               className="bg-[#eeeeeec7] rounded-lg text-lg font-mono mt-3 w-full px-6 py-4"
               type="number"
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
               placeholder="Enter a OTP"
             />
             <Link
