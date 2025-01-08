@@ -1,13 +1,31 @@
 // import React from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useState } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
+// import RidePopUp from "../components/RidePopUp";
+import FinishRide from "../components/FinishRide";
 
 const CaptainRiding = () => {
+  const [finishRidePanel, setFinishRidePanel] = useState(false);
+  const finishRideRef = useRef(null);
+
+  useGSAP(() => {
+    if (finishRidePanel) {
+      gsap.to(finishRideRef.current, {
+        transform: "translateY(0)",
+      });
+    } else {
+      gsap.to(finishRideRef.current, {
+        transform: "translateY(100%)",
+      });
+    }
+  }, [finishRidePanel]);
+
   return (
-    <div className="h-screen relative">
-      <h4 className="p-1 text-center w-[93%] absolute top-0">
-          <i className="text-3xl text-gray-300 ri-arrow-down-wide-line"></i>
-        </h4>
-      <div className="fixed p-6 flex items-center justify-between w-full">
+    <div className=" h-screen relative">
+      <div className="fixed p-6 flex items-center justify-between w-screen">
         <img
           className="w-16 "
           src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png"
@@ -26,12 +44,23 @@ const CaptainRiding = () => {
           src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif"
         />
       </div>
-      <div className="h-1/5 p-6 flex items-center justify-between bg-yellow-400">
-        
+      <div
+        onClick={() => setFinishRidePanel(true)}
+        className="h-1/5 w-full p-6 pt-10 flex items-center justify-between bg-yellow-400 relative"
+      >
+        <h4 className="p-1 text-center w-[90%] absolute top-0">
+          <i className="text-3xl font-semibold text-black ri-arrow-up-wide-line"></i>
+        </h4>
         <h4 className="text-xl font-medium mb-2">4 Km away</h4>
         <button className=" bg-green-600 text-white font-semibold text-lg  rounded-lg p-3 px-10">
           Complete Ride
         </button>
+      </div>
+      <div
+        ref={finishRideRef}
+        className="fixed w-full bg-white translate-y-full bottom-0  z-10 px-3 py-6"
+      >
+        <FinishRide />
       </div>
     </div>
   );

@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ConfirmRidePopUp = (props) => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
       <h4
@@ -51,21 +55,30 @@ const ConfirmRidePopUp = (props) => {
             </div>
           </div>
         </div>
-        <Link
-          to="/captain-riding"
-          className="flex justify-center w-full bg-green-600 text-white font-semibold text-lg mt-5 rounded-lg py-3"
-        >
-          Confirm
-        </Link>
-        <button
-          onClick={() => {
-            props.setConfirmRidePopUp(false);
-            props.setRidePopUP(false);
-          }}
-          className="w-full bg-red-600 text-white  font-semibold text-lg mt-1 rounded-lg py-3"
-        >
-          Cancel
-        </button>
+        <div className="w-full mt-6">
+          <form onSubmit={(e) => submitHandler(e)}>
+            <input
+              className="bg-[#eeeeeec7] rounded-lg text-lg font-mono mt-3 w-full px-6 py-4"
+              type="number"
+              placeholder="Enter a OTP"
+            />
+            <Link
+              to="/captain-riding"
+              className="flex justify-center w-full bg-green-600 text-white font-semibold text-lg mt-5 mb-2 rounded-lg py-3"
+            >
+              Confirm
+            </Link>
+            <button
+              onClick={() => {
+                props.setConfirmRidePopUp(false);
+                props.setRidePopUP(false);
+              }}
+              className="w-full bg-red-600 text-white  font-semibold text-lg mt-1 rounded-lg py-3"
+            >
+              Cancel
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
