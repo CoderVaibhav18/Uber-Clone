@@ -1,22 +1,13 @@
-// import React from 'react'
+import React from "react";
 
-const ConfirmedRide = (props) => {
-  // console.log(props);
-
+const RidePopUp = () => {
   return (
     <div>
-      <h4
-        onClick={() => props.setConfirmedRide(false)}
-        className="p-1 text-center w-[93%] absolute top-0"
-      >
+      <h4 className="p-1 text-center w-[93%] absolute top-0">
         <i className="text-3xl text-gray-200 ri-arrow-down-wide-line"></i>
       </h4>
-      <h3 className="text-2xl font-semibold mb-6 mt-3">Confirm your Ride</h3>
+      <h3 className="text-2xl font-semibold mb-6 mt-3">New Ride Available</h3>
       <div className="flex flex-col items-center justify-between gap-2">
-        <img
-          className="h-20"
-          src="https://swyft.pl/wp-content/uploads/2023/05/how-many-people-can-a-uberx-take.jpg"
-        />
         <div className="w-full flex flex-col mt-5">
           <div className="flex items-center gap-5 p-3 border-b-2">
             <i className="text-lg ri-map-pin-user-fill"></i>
@@ -44,18 +35,15 @@ const ConfirmedRide = (props) => {
             </div>
           </div>
         </div>
-        <button
-          onClick={() => {
-            props.setVehicleFound(true);
-            props.setConfirmedRide(false);
-          }}
-          className="w-full bg-green-600 text-white font-semibold text-lg mt-5 rounded-lg py-2"
-        >
+        <button className="w-full bg-green-600 text-white font-semibold text-lg mt-5 rounded-lg py-2">
           Confirm
+        </button>
+        <button className="w-full bg-gray-300 text-gray-700 font-semibold text-lg mt-1 rounded-lg py-2">
+          Ignore
         </button>
       </div>
     </div>
   );
 };
 
-export default ConfirmedRide;
+export default RidePopUp;
