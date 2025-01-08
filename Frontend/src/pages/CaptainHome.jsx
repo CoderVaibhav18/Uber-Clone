@@ -30,6 +30,7 @@ const CaptainHome = () => {
         />
         <Link
           to="/captain/logout"
+          title="Logout"
           className=" bg-white w-10 h-10 flex items-center justify-center rounded-full"
         >
           <i className="text-lg font-medium ri-logout-box-r-line"></i>
